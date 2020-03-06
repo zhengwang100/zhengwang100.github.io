@@ -116,19 +116,11 @@
 
     <!-- <p><strong>Students Supported:</strong> </p> -->
     <h2 align="left">Definition</h2>
-	<img src="../img/zsge.png" width="55%" align="center">
+	<img src="../img/zsge.png" width="65%" align="center">
     <p>
 	<strong>Zero-shot Graph Embedding (ZsGE)</strong> refers to the process of learning discriminative graph embeddings when labeled data cannot cover all classes (also known as completely-imbalanced label setting).
 	Here, "zero-shot" means to handle the nodes coming from unseen classes.
 	This problem has practical significance, especially when the graph size is typical large and nodes can take on many values.
-    </p>
-	
-    <h2>The existing semi-supervised methods would fail</h2>
-	<img src="../img/exist_sge_fail.png" width="55%" align="center">
-    <p>
-      Existing semi-supervised graph embedding methods would get unappealing results in this setting (typically performance would drop 20%-30%).
-	  The reason can be briefly analysed as follows. 
-	  To benefit from the discriminative information (e.g., class labels), the most effective and widely used strategy is to guarantee both the intra-class similarity and inter-class dissimilarity in the embedding space. For this purpose, traditional semi-supervised graph embedding methods reduce the intra-class embedding variance and enlarge the inter-class embedding variance by optimizing various classification models. However, as the unseen class nodes are (partly) linked with the seen class ones (i.e., seen and unseen class nodes are correlated), only optimizing over the seen classes is suboptimal for the whole graph.
     </p>
 	
     <h2>Our solution</h2>
@@ -139,6 +131,13 @@
 	Especially, our RECT outperforms GCN by [20%~300%].
 	It is worth highlighting that in the balanced label setting, our methods could still achieve comparable performance to state-of-the-art semi-supervised methods.
 	Therefore, our methods would be favorably de-manded by the scenario where the quality of labels cannot be guaranteed.
+    </p>
+    <h2>The existing semi-supervised methods would fail</h2>
+	<img src="../img/exist_sge_fail.png" width="55%" align="center">
+    <p>
+      Existing semi-supervised graph embedding methods would get unappealing results in this setting (typically performance would drop 20%-30%).
+	  The reason can be briefly analysed as follows. 
+	  To benefit from the discriminative information (e.g., class labels), the most effective and widely used strategy is to guarantee both the intra-class similarity and inter-class dissimilarity in the embedding space. For this purpose, traditional semi-supervised graph embedding methods reduce the intra-class embedding variance and enlarge the inter-class embedding variance by optimizing various classification models. However, as the unseen class nodes are (partly) linked with the seen class ones (i.e., seen and unseen class nodes are correlated), only optimizing over the seen classes is suboptimal for the whole graph.
     </p>
     
     <!-- <p>
