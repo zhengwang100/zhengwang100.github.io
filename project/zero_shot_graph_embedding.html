@@ -128,14 +128,14 @@
 	<p><img src="../img/zsge_result.png" width="100%"></p>
 	<p><img src="../img/general_result.png" width="100%"></p>
 	<p>
-	We propose a shallow method <a href="https://github.com/zhengwang100/RSDNE-python">RSDNE</a> and a GNN method <a href="https://github.com/zhengwang100/RECT">RECT</a>. Our methods generally perform best in this zero-shot label setting.
+	We propose a shallow method <a href="https://github.com/zhengwang100/RSDNE-python">RSDNE</a>[1] and a GNN method <a href="https://github.com/zhengwang100/RECT">RECT</a>[2]. Our methods generally perform best in this zero-shot label setting.
 	Especially, <strong>our RECT outperforms GCN by [20%~300%]</strong>.
 	In addition, we note that: even in the balanced label setting, our methods could still achieve comparable performance to state-of-the-art semi-supervised methods.
 	Therefore, we always recommend our methods for the scenario where the quality of labels cannot be guaranteed.
 	
 	<p>
-	<strong>Why RECT works? [3]</strong> 
-        Its core part RECT-L actually learns a prototypical model with the labeled data of seen classes, reflecting its reasonability on seen classes. 
+	<strong>Why RECT works?</strong>
+        In [3], we show that its core part RECT-L actually learns a prototypical model with the labeled data of seen classes. This reflects its reasonability on seen classes. 
 	On the other hand, the learned prototypical model maps the data from the raw-input space into a semantic space, like ZSL methods. 
 	As validated by lots of ZSL methods, this enables the success of transferring supervised knowledge of seen classes to unseen classes, indicating its reasonability on unseen classes.
 
