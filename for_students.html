@@ -122,28 +122,16 @@
 	    There are two research groups in my lab.
 	    <p>1) Data mining: social network analysis, graph nerual networks, and deep learning.</p>
             <p>2) Database: blockchain related data architectures, and large-scale transaction processing systems.</p>
+	In data mining research, we design new theories for graph data related deep learning.
+	Therefore, if you are very like mathematical theories (like matrix analysis and probability statistics), you are very encouraged to join the data mining group.
+	
+	In database research, we not only design new algorithms but also write new codes for database systems. 
+	Therefore, if you are very like data structures and algorithms (like B-tree and dynamic programming), you are very encouraged to join the database group.
     </p>
     <p>
     <strong> Reminder:</strong> The prospective students are highly encouraged to join (either offline or online) my group meeting for at least one time to get a better understanding about my group. This will help you make good decisions based on transparency.
 </p>
-    <h2 align="left">Our solution: RSDNE and RECT</h2>
-	<p><img src="../img/zsge_result.png" width="100%"></p>
-	<p><img src="../img/general_result.png" width="100%"></p>
-	<p>
-	We propose a shallow method <a href="https://github.com/zhengwang100/RSDNE-python">RSDNE</a> [1] and a GNN method <a href="https://github.com/zhengwang100/RECT">RECT</a> [2]. Our methods generally perform best in this zero-shot label setting.
-	Especially, <strong>our RECT outperforms GCN by [20%~300%]</strong>.
-	In addition, we note that: even in the balanced label setting, our methods could still achieve comparable performance to state-of-the-art semi-supervised methods.
-	Therefore, we always recommend our methods for the scenario where the quality of labels cannot be guaranteed.
-	
-	<p>
-	<strong>Why RECT works?</strong>
-        In [3], we show that its core part RECT-L actually learns a prototypical model with the labeled data of seen classes. This reflects its reasonability on seen classes. 
-	On the other hand, the learned prototypical model maps the data from the raw-input space into a semantic space, like ZSL methods. 
-	As validated by lots of ZSL methods, this enables the success of transferring supervised knowledge of seen classes to unseen classes, indicating its reasonability on unseen classes.
     
-    <!-- <p>
-      Read Code in Wenshuo Zhang's <a href="https://github.com/zwszwszws">respository</a>
-    </p> -->
   </div>
 </body>
 
