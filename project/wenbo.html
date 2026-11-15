@@ -1,1 +1,140 @@
 
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Wenbo: Scaling Agent Reasoning via Dynamic DAG Scheduling</title>
+  <style type="text/css" media="screen">
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      margin: 50px auto 40px auto;
+      width: 900px;
+      text-align: center;
+    }
+
+    a {
+      color: #0db14b;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      width: 900px;
+      position: relative;
+      letter-spacing: 0px;
+      line-height: 46px;
+      font-size: 30px;
+      font-weight: 100;
+      margin: 0px 0 40px 0;
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    p {
+      color: rgba(0, 0, 0, 1);
+      margin: 20px 0;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    ul {
+      text-align: left;
+      line-height: 1.7;
+      margin: 8px 0 20px 0;
+      padding-left: 22px;
+    }
+
+    ul.links {
+      list-style: none;
+      margin: 25px 0;
+      padding: 0;
+      text-align: left;
+    }
+
+    ul.links li {
+      display: block;
+      font-weight: normal;
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #e5e5e5;
+      margin: 40px 0 30px 0;
+    }
+
+    .figs {
+      text-align: center;
+      margin: 10px 0 25px 0;
+    }
+
+    .caption {
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+      margin: 8px 0 0 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1 align="center">Wenbo: Scaling Agent Reasoning<br>via Dynamic DAG Scheduling</h1>
+
+    <div class="figs">
+      <img src="../pdf/wenbo_files/architecture.png" width="68%" align="center" />
+      <p class="caption">
+        Wenbo architecture: a Director maintains the reasoning graph, a Scheduler places DAG nodes,
+        and Workers execute GPU/CPU nodes.
+      </p>
+    </div>
+
+    <p>
+      <strong>Motivation</strong>
+      LLM-based agents have become a mainstream paradigm for complex reasoning tasks that require
+      planning, tool use, and interaction with external environments. These workloads alternate between
+      GPU-intensive LLM inference and CPU-intensive tool invocation, retrieval, and orchestration.
+      However, many existing systems allocate resources at coarse task granularity, holding a resource
+      bundle for a task's lifetime. This can leave GPUs idle during CPU-bound phases and CPUs
+      underutilized during GPU-bound phases, causing resource fragmentation as concurrency grows.
+    </p>
+
+    <p>
+      <strong>Our solution</strong>
+      Wenbo is a DAG-centric execution system that decouples agent reasoning from resource management.
+      Rather than assigning a fixed resource bundle to each task, Wenbo executes agent workflows as
+      dynamic DAGs and schedules individual nodes across a shared GPU/CPU pool. The system comprises
+      three components:
+    </p>
+    <ul>
+      <li><strong>Director</strong> — constructs and evolves the reasoning graph, incrementally materializes it into executable DAGs, and maintains the global task context.</li>
+      <li><strong>Scheduler</strong> — globally dispatches dependency-ready nodes to appropriate GPU or CPU workers, interleaves nodes from multiple DAGs, and provides node-granularity fault tolerance.</li>
+      <li><strong>Workers</strong> — execute individual GPU or CPU nodes, manage local resources, and report execution feedback to the control plane.</li>
+    </ul>
+
+    <hr>
+
+    <ul class="links">
+      <li>Paper (<a href="../pdf/wenbo_files/wenbo_paper_preprintsv1.pdf" target="_blank">PDF</a> /
+        <a href="../pdf/wenbo_files/wenbo_slides_26111.pdf" target="_blank">Slides</a>):
+        <a href="https://doi.org/10.20944/preprints202611.0942.v1" target="_blank">https://doi.org/10.20944/preprints202611.0942.v1</a>
+      </li>
+      <li>Code: <a href="https://github.com/wenbo-project/wenbo" target="_blank">https://github.com/wenbo-project/wenbo</a>
+      </li>
+    </ul>
+
+  </div>
+</body>
+
+</html>
